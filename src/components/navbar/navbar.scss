@@ -1,12 +1,17 @@
+@import "../../responsive.scss";
 nav {
     display: flex;
     justify-content: space-between;
     height: 100px;
     align-items: center;
-  }
+  
   
   a {
     transition: all 0.3s ease;
+
+    @include sm { 
+        display: none;
+    }
   
     &:hover {
       scale: 1.1;
@@ -25,10 +30,21 @@ nav {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
+    
   
     img {
       width: 28px;
+    }
+
+    span { 
+        @include md { 
+            display: none;
+        }
+
+        @include sm { 
+            display:initial;
+        
+        }}
     }
   }
   
@@ -39,14 +55,103 @@ nav {
     align-items: center;
     background-color: #fcf5f3;
     height: 100%;
+
+    @include md {
+        background-color: transparent;
+    }
   
     a {
       padding: 12px 24px;
       margin: 20px;
     }
-  
+
+    .user { 
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    
+    .img { 
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    span { 
+        @include sm { 
+            display: none;
+        }
+    }
+    
+    .profile { 
+        padding: 12px 24px;
+        background-color: #4a6741;
+        cursor: pointer;
+        border: none;
+        position : relative; 
+    
+    .notification { 
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    }} 
+    
     .register {
       background-color: #4a6741;
       border-radius: 20px; // Add this line to make the button rounded
     }
-  }
+
+    .menu-icon { 
+        display:none;
+        z-index: 999;
+
+        img { 
+            width: 36px; 
+            height: 36px;
+            cursor: pointer;
+
+        }
+        @include sm { 
+            display: inline;
+        }
+    }
+
+    .menu { 
+        position: absolute;
+        top : 0; 
+        right: -50%; 
+        background-color: #4a6741;
+        width: 50%;
+        height: 100vh;
+        color: white ; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease;
+        font-size: 24px;
+       
+    
+        &.active { 
+            right: 0;
+            padding:20px;
+            margin-bottom: 10px;
+            display: flex;
+            width: 100%;
+            
+        }
+
+        @include sm { 
+            a{
+                display: initial;
+            }}}}}
+        
